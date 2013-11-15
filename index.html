@@ -1,0 +1,744 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>   
+    <title>Pokemon Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <script src="cordova.js">
+    </script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript">
+</script>
+    <script src="http://code.jquery.com/mobile/1.4.0-beta.1/jquery.mobile-1.4.0-beta.1.min.js" type="text/javascript">
+</script>
+    <script src="fastclick.js" type="text/javascript">
+</script>
+
+
+
+    <style type="text/css">
+    
+    .bug
+    {
+	    background-color: #9AAE00;
+    }
+    
+    .dragon
+    {
+	    background-color: #5500ff;
+    }
+
+    .electric
+    {
+	    background-color: #f4ca00;
+    }
+    
+    .fighting
+    {
+	    background-color: #ab201a;
+    }
+    
+    .fire
+    {
+	    background-color: #e56d11;
+    }
+    
+    .flying
+    {
+	    background-color: #9476f4;
+    }
+    
+    .ghost
+    {
+	    background-color: #5a418b;
+    }
+    
+    .grass
+    {
+	    background-color: #6fc129;
+    }
+    
+    .ground
+    {
+	    background-color: #d7b647;
+    }
+    
+    .ice
+    {
+	    background-color: #8dd0cf;
+    }
+ 
+    .normal
+    {
+	    background-color: #989a5f;
+    }
+    
+    .poison
+    {
+	    background-color: #882694;
+    }
+    
+    .psychic
+    {
+	    background-color: #ec3e77;
+    }
+    
+    .rock
+    {
+	    background-color: #a99213;
+    }
+    
+    .water
+    {
+	    background-color: #5677f5;
+    }
+
+
+    
+    .type
+    {
+        border: 1px solid black;
+		text-shadow: 2px 2px 1px black;
+        padding: 2px;
+        border-radius: 5px;
+
+
+    }
+
+    .ui-popup.ui-body-inherit
+	{
+		padding:10px;
+	}
+
+    .ui-li-count
+    {
+        background-color: transparent;
+        border: none;
+        text-shadow: none;
+    }
+    </style>
+    <script type="text/javascript">
+
+
+        window.addEventListener('load', function()
+    {
+        FastClick.attach(document.body);
+    }, false);
+    //All of this needs to be cleaned up, but it works!
+    //var Pokemon=new Array("Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite");
+	var Pokemon=new Array("Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Butterfree","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros", "Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite");
+    var PokemonInfo=
+    {
+        'Bulbasaur' : {'id':'001', 'Type':['Grass', 'Poison']},
+        'Ivysaur' : {'id':'002', 'Type':['Grass', 'Poison']},
+        'Venusaur' : {'id':'003', 'Type':['Grass', 'Poison']},
+        'Charmander' : {'id':'004', 'Type':['Fire']},
+        'Charmeleon' : {'id':'005', 'Type':['Fire']},
+        'Charizard' : {'id':'006', 'Type':['Fire', 'Flying']},
+        'Squirtle' : {'id':'007', 'Type':['Water']},
+        'Wartortle' : {'id':'008', 'Type':['Water']},
+        'Blastoise' : {'id':'009', 'Type':['Water']},
+        'Caterpie' : {'id':'010', 'Type':['Bug']},
+        'Metapod' : {'id':'011', 'Type':['Bug']},
+        'Butterfree' : {'id':'012', 'Type':['Bug', 'Flying']},
+        'Weedle' : {'id':'013', 'Type':['Bug', 'Poison']},
+        'Kakuna' : {'id':'014', 'Type':['Bug', 'Poison']},
+        'Beedrill' : {'id':'015', 'Type':['Bug', 'Poison']},
+        'Pidgey' : {'id': '016', 'Type':['Normal', 'Flying']},
+        'Pidgeotto' : {'id':'017', 'Type':['Normal', 'Flying']},
+        'Pidgeot' : {'id':'018', 'Type':['Normal', 'Flying']},
+        'Rattata' : {'id':'019', 'Type':['Normal']},
+        'Raticate' : {'id':'020', 'Type':['Normal']},
+        'Spearow' : {'id':'021', 'Type':['Normal', 'Flying']},
+        'Fearow' : {'id':'022', 'Type':['Normal', 'Flying']},
+        'Ekans' : {'id':'023', 'Type':['Poison']},
+        'Arbok' : {'id':'024', 'Type':['Poison']},
+        'Pikachu' : {'id':'025', 'Type':['Electric']},
+        'Raichu' : {'id':'026', 'Type':['Electric']},
+        'Sandshrew' : {'id':'027', 'Type':['Ground']},
+        'Sandslash' : {'id':'028', 'Type':['Ground']},
+        'Nidoran' : {'id':'029', 'Type':['Poison']},
+        'Nidorina' : {'id':'030', 'Type':['Poison']},
+        'Nidoqueen' : {'id':'031', 'Type':['Poison', 'Ground']},
+        'Nidorino' : {'id':'033', 'Type':['Poison']},
+        'Nidoking' : {'id':'034', 'Type':['Poison', 'Ground']},
+        'Clefairy' : {'id':'035', 'Type':['Normal']},
+        'Clefable' : {'id':'036', 'Type':['Normal']},
+        'Vulpix' : {'id':'037', 'Type':['Fire']},
+        'Ninetales' : {'id':'038', 'Type':['Fire']},
+        'Jigglypuff' : {'id':'039', 'Type':['Normal']},
+        'Wigglytuff' : {'id':'040', 'Type':['Normal']},
+        'Zubat' : {'id':'041', 'Type':['Poison', 'Flying']},
+        'Golbat' : {'id':'042', 'Type':['Poison', 'Flying']},
+        'Oddish' : {'id':'043', 'Type':['Grass', 'Poison']},
+        'Gloom' : {'id':'044', 'Type':['Grass', 'Poison']},
+        'Vileplume' : {'id':'045', 'Type':['Grass', 'Poison']},
+        'Paras' : {'id':'046', 'Type':['Bug', 'Grass']},
+        'Parasect' : {'id':'047', 'Type':['Bug', 'Grass']},
+        'Venonat' : {'id':'048', 'Type':['Bug', 'Poison']},
+        'Venomoth' : {'id':'049', 'Type':['Bug', 'Poison']},
+        'Diglett' : {'id':'050', 'Type':['Ground']},
+        'Dugtrio' : {'id':'051', 'Type':['Ground']},
+        'Meowth' : {'id':'052', 'Type':['Normal']},
+        'Persian' : {'id':'053', 'Type':['Normal']},
+        'Psyduck' : {'id':'054', 'Type':['Water']},
+        'Golduck' : {'id':'055', 'Type':['Water']},
+        'Mankey' : {'id':'056', 'Type':['Fighting']},
+        'Primeape' : {'id':'057', 'Type':['Fighting']},
+        'Growlithe' : {'id':'058', 'Type':['Fire']},
+        'Arcanine' : {'id':'059', 'Type':['Fire']},
+        'Poliwag' : {'id':'060', 'Type':['Water']},
+        'Poliwhirl' : {'id':'061', 'Type':['Water']},
+        'Poliwrath' : {'id':'062', 'Type':['Water', 'Fighting']},
+        'Abra' : {'id':'063', 'Type':['Psychic']},
+        'Kadabra' : {'id':'064', 'Type':['Psychic']},
+        'Alakazam' : {'id':'065', 'Type':['Psychic']},
+        'Machop' : {'id':'066', 'Type':['Fighting']},
+        'Machoke' : {'id':'067', 'Type':['Fighting']},
+        'Machamp' : {'id':'068', 'Type':['Fighting']},
+        'Bellsprout' : {'id':'069', 'Type':['Grass', 'Poison']},
+        'Weepinbell' : {'id':'070', 'Type':['Grass', 'Poison']},
+        'Victreebel' : {'id':'071', 'Type':['Grass', 'Poison']},
+        'Tentacool' : {'id':'072', 'Type':['Water', 'Poison']},
+        'Tentacruel' : {'id':'073', 'Type':['Water', 'Poison']},
+        'Geodude' : {'id':'074', 'Type':['Rock', 'Ground']},
+        'Graveler' : {'id':'075', 'Type':['Rock', 'Ground']},
+        'Golem' : {'id':'076', 'Type':['Rock', 'Ground']},
+        'Ponyta' : {'id':'077', 'Type':['Fire']},
+        'Rapidash' : {'id':'078', 'Type':['Fire']},
+        'Slowpoke' : {'id':'079', 'Type':['Water', 'Psychic']},
+        'Slowbro' : {'id':'080', 'Type':['Water', 'Psychic']},
+        'Magnemite' : {'id':'081', 'Type':['Electric', 'Steel']},
+        'Magneton' : {'id':'082', 'Type':['Electric', 'Steel']},
+        'Farfetch\'d' : {'id':'083', 'Type':['Normal', 'Flying']},
+        'Doduo' : {'id':'084', 'Type':['Normal', 'Flying']},
+        'Dodrio' : {'id':'085', 'Type':['Normal', 'Flying']},
+        'Seel' : {'id':'086', 'Type':['Water']},
+        'Dewgong' : {'id':'087', 'Type':['Water', 'Ice']},
+        'Grimer' : {'id':'088', 'Type':['Poison']},
+        'Muk' : {'id':'089', 'Type':['Poison']},
+        'Shellder' : {'id':'090', 'Type':['Water']},
+        'Cloyster' : {'id':'091', 'Type':['Water', 'Ice']},
+        'Gastly' : {'id':'092', 'Type':['Ghost', 'Poison']},
+        'Haunter' : {'id':'093', 'Type':['Ghost', 'Poison']},
+        'Gengar' : {'id':'094', 'Type':['Ghost', 'Poison']},
+        'Onix' : {'id':'095', 'Type':['Rock', 'Ground']},
+        'Drowzee' : {'id':'096', 'Type':['Psychic']},
+        'Hypno' : {'id':'097', 'Type':['Psychic']},
+        'Krabby' : {'id':'098', 'Type':['Water']},
+        'Kingler' : {'id':'099', 'Type':['Water']},
+        'Voltorb' : {'id':'100', 'Type':['Electric']},
+        'Electrode' : {'id':'101', 'Type':['Electric']},
+        'Exeggcute' : {'id':'102', 'Type':['Grass', 'Psychic']},
+        'Exeggutor' : {'id':'103', 'Type':['Grass', 'Psychic']},
+        'Cubone' : {'id':'104', 'Type':['Ground']},
+        'Marowak' : {'id':'105', 'Type':['Ground']},
+        'Hitmonlee' : {'id':'106', 'Type':['Fighting']},
+        'Hitmonchan' : {'id':'107', 'Type':['Fighting']},
+        'Lickitung' : {'id':'108', 'Type':['Normal']},
+        'Koffing' : {'id':'109', 'Type':['Poison']},
+        'Weezing' : {'id':'110', 'Type':['Poison']},
+        'Rhyhorn' : {'id':'111', 'Type':['Ground', 'Rock']},
+        'Rhydon' : {'id':'112', 'Type':['Ground', 'Rock']},
+        'Chansey' : {'id':'113', 'Type':['Normal']},
+        'Tangela' : {'id':'114', 'Type':['Grass']},
+        'Kangaskhan' : {'id':'115', 'Type':['Normal']},
+        'Horsea' : {'id':'116', 'Type':['Water']},
+        'Seadra' : {'id':'117', 'Type':['Water']},
+        'Goldeen' : {'id':'118', 'Type':['Water']},
+        'Seaking' : {'id':'119', 'Type':['Water']},
+        'Staryu' : {'id':'120', 'Type':['Water']},
+        'Starmie' : {'id':'121', 'Type':['Water', 'Psychic']},
+        'Mr. Mime' : {'id':'122', 'Type':['Psychic']},
+        'Scyther' : {'id':'123', 'Type':['Bug', 'Flying']},
+        'Jynx' : {'id':'124', 'Type':['Ice', 'Psychic']},
+        'Electabuzz' : {'id':'125', 'Type':['Electric']},
+        'Magmar' : {'id':'126', 'Type':['Fire']},
+        'Pinsir' : {'id':'127', 'Type':['Bug']},
+        'Tauros' : {'id':'128', 'Type':['Normal']},
+        'Magikarp' : {'id':'129', 'Type':['Water']},
+        'Gyarados' : {'id':'130', 'Type':['Water', 'Flying']},
+        'Lapras' : {'id':'131', 'Type':['Water', 'Ice']},
+        'Ditto' : {'id':'132', 'Type':['Normal']},
+        'Eevee' : {'id':'133', 'Type':['Normal']},
+        'Vaporeon' : {'id':'134', 'Type':['Water']},
+        'Jolteon' : {'id':'135', 'Type':['Electric']},
+        'Flareon' : {'id':'136', 'Type':['Fire']},
+        'Porygon' : {'id':'137', 'Type':['Normal']},
+        'Omanyte' : {'id':'138', 'Type':['Rock', 'Water']},
+        'Omastar' : {'id':'139', 'Type':['Rock', 'Water']},
+        'Kabuto' : {'id':'140', 'Type':['Rock', 'Water']},
+        'Kabutops' : {'id':'141', 'Type':['Rock', 'Water']},
+        'Aerodactyl' : {'id':'142', 'Type':['Rock', 'Flying']},
+        'Snorlax' : {'id':'143', 'Type':['Normal']},
+        'Articuno' : {'id':'144', 'Type':['Ice', 'Flying']},
+        'Zapdos' : {'id':'145', 'Type':['Electric', 'Flying']},
+        'Moltres' : {'id':'146', 'Type':['Fire', 'Flying']},
+        'Dratini' : {'id':'147', 'Type':['Dragon']},
+        'Dragonair' : {'id':'148', 'Type':['Dragon']},
+        'Dragonite' : {'id':'149', 'Type':['Dragon', 'Flying']},
+        'Mewtwo' : {'id':'150', 'Type':['Psychic']},
+        'Mew' : {'id':'151', 'Type':['Psychic']}
+
+        }
+            var Types=
+    {
+        'Normal' : {'Rock': .5, 'Ghost' : 0},
+        'Fire' : {'Fire' : .5, 'Water' : .5, 'Grass' : 2, 'Ice' : 2, 'Bug' : 2, 'Rock' : .5, 'Dragon' : .5},
+        'Water' : {'Fire' : 2, 'Water' : .5, 'Grass' : .5, 'Ground' : 2, 'Rock' : 2, 'Dragon' : .5},
+        'Electric' : {'Water' : 2, 'Electric' : .5, 'Grass' : .5, 'Ground' : 0, 'Flying' : 2, 'Dragon' : .5},
+        'Grass' : {'Fire' : .5, 'Water' : 2, 'Grass' : .5, 'Poison' : .5, 'Ground' : 2, 'Flying' : .5 , 'Bug' : .5 , 'Rock' : 2 , 'Dragon' : .5},
+        'Ice' : {'Water' : .5, 'Grass' : 2, 'Ice' : .5, 'Ground' : 2, 'Flying' : 2, 'Dragon' : 2},
+        'Fighting' : {'Normal' : 2, 'Ice' : 2, 'Poison' : .5, 'Flying' : .5, 'Psychic' : .5, 'Bug' : .5 , 'Rock' : 2 , 'Ghost' : 0  },
+        'Poison' : {'Grass' : 2, 'Poison' : .5, 'Ground' : .5, 'Bug' : 2, 'Rock' : .5, 'Ghost' : .5 },
+        'Ground' : {'Fire' : 2, 'Electric' : 2, 'Grass' : .5, 'Poison' : 2, 'Flying' : 0, 'Rock' : .5  },
+        'Flying' : {'Electric' : .5, 'Grass' : 2, 'Fighting' : 2, 'Bug' : 2, 'Rock' : .5},
+        'Psychic' : {'Fighting' : 2, 'Poison' : 2, 'Psychic' : .5},
+        'Bug' : {'Fire' : .5, 'Grass' : 2, 'Fighting' : .5, 'Poison' : 2, 'Flying' : .5, 'Psychic' : 2},
+        'Rock' : {'Fire' : 2, 'Ice' : 2, 'Fighting' : .5, 'Ground' : .5, 'Flying' : 2, 'Bug' : 2},
+        'Ghost' : {'Normal' : 0, 'Psychic' : 0, 'Ghost' : 2},
+        'Dragon' : {'Dragon' : 2}
+    }
+
+
+    debug=true;
+    PokemonClone=Pokemon.slice(0);
+    var Player=1;
+    $(document).on("ready", function()
+    {
+			
+
+
+
+
+
+
+        var images = new Array()
+        for (i = 0; i < Pokemon.length; i++)
+        {
+                    images[i] = new Image()
+                    image="images/" + pad(i+1,3) + ".png";
+                    images[i].src = image;
+        }
+
+
+        $("#cloudButton").on("tap", function()
+        {
+        	$("#cloudbuttons").show();
+        	$("#cloudcontent").html("");
+	        $( "#cloudPopup" ).popup( "open");
+	        
+	        
+	        
+	        
+        })
+        
+        $("#okButton").on("tap", function()
+        {
+	        
+	        
+	         gen()
+        });
+
+        $("#sendButton").on("tap", function()
+        {
+            if ($("#pokemonList").html()=="")
+            {
+                alert("No Pokemon to send. ")
+                return
+            }
+
+
+        	list=[];
+        	$("#cloudbuttons").hide();
+        	$( "#pokemonList li" ).each(function( index )
+        	{
+        		list.push($( this ).attr("data-id"))
+
+			});
+	        data=list.join();
+	        content='<img id="qr" class="qr" src="http://qrickit.com/api/qr?d=' + data + '">';
+	        $("#cloudcontent").html(content);
+
+         $(".qr").load(function()
+        {
+
+
+            $( '#cloudPopup' ).popup( 'reposition', 'positionTo: window' );
+
+
+        })
+
+        });
+
+
+
+
+
+        $("#receiveButton").on("tap", function()
+        {
+
+$( "#cloudPopup" ).popup( "close");
+  cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          load(result.text);
+
+      },
+      function (error) {
+
+      }
+   );
+
+        });
+
+
+        $(document).on("tap",".type", function()
+        {
+            $("#strongList").show();
+            $("#weakList").show();
+            $("#noList").show();
+
+
+            type=$(this).text();
+            
+            $( "#pokemonList li" ).each(function( index )
+        	{
+        		$( this ).css("background-color","" )
+
+			});
+            
+            console.log( $(this).parent().parent().parent());
+            
+            
+            $(this).parent().parent().css("background-color", "#ddd");
+            $("#typeHeader").html("<h1>" + type + "<\/h1>");
+            strong=""
+            weak=""
+            no=""
+            for (x in Types[type])
+            {
+                //console.log(x)
+                //console.log()
+                if (Types[type][x]==2)
+                {
+                    strong=strong + x + "<br>"
+                }
+                else if (Types[type][x]==0)
+                {
+                    no=no + x + "<br>"
+                }
+
+            }
+
+            for (i in Types)
+            {
+                if (typeof Types[i][type]=="number" && Types[i][type]==2)
+                {
+                    weak=weak + i + "<br>"
+                }
+            }
+            console.log("----");
+
+
+            $("#strong").html(strong);
+            $("#weak").html(weak);
+            $("#no").html(no);
+
+            $( "#typePopup" ).popup( "open");
+        });
+
+
+        $("#counterButton").on("touchstart", function()
+        {
+            PokemonClone=Pokemon.slice(0);
+            $("#counterButton").text(PokemonClone.length)
+            $("#pokemonList").html("");
+        })
+        $("#genButton").on("tap", function()
+        {
+        	$( "#genPopup" ).popup( "open");
+    
+          
+		})
+
+    function log(message)
+    {
+        if (debug)
+        {
+            console.log(message);
+        }
+    }
+    function pad(num, size)
+    {
+        var s = num+"";
+        while (s.length < size) s = "0" + s;
+        return s;
+    }
+
+
+
+    function load(list)
+    {
+    	list=cleanArray(list.split(","));
+    	console.log(list);
+    	buffer="";
+	    for (x in list)
+            {
+            	
+            	if (((x)/6).toString().indexOf(".")==-1)
+            	{
+	            	if(Math.floor((x/6)%2))
+	            	{
+		            	buffer=buffer + "<li data-role='list-divider'>Player 1<\/li> "
+	            	}
+	            	else
+	            	{
+		            	buffer=buffer + "<li data-role='list-divider'>Player 2<\/li> "
+	            	}
+            	}
+
+				ID=list[x]
+				Name=PokemonByID(ID);
+                log(ID + " " + Name);
+                log(PokemonInfo[Name].Type);
+                //Name=PokemonClone[list[x]]
+                //console.log(ID);
+                
+                
+               // log("This Pokemon: " + Name)
+                
+                
+				
+                //console.log("ID: " + id)
+                image=pad(ID,3) + ".png";
+                log("1");
+                
+                if (PokemonInfo[Name].Type.length>1)
+                {
+                	log("2");
+                	color1=PokemonInfo[Name].Type[0].toLowerCase();
+                	color2=PokemonInfo[Name].Type[1].toLowerCase();
+                    type="<span class='type " + color1 + "'>" + PokemonInfo[Name].Type[0] + "<\/span> <span class='type " + color2 + "'>" + PokemonInfo[Name].Type[1] + "<\/span>"
+                }
+                else
+                {
+                	log("2");
+					color1=PokemonInfo[Name].Type[0].toLowerCase();
+                    type='<span class="type ' + color1 + '">' + PokemonInfo[Name].Type[0] + '<\/span>';
+                    log("3");
+                }
+                log("4");
+				buffer=buffer + '<li data-id="' + ID + '"><img src="images/' + image + '">' + ID + ". " + Name + ' <span class="ui-li-count">' + type + '<\/span><\/li>'
+                //$("#pokemonList").append('<li><img src="images/' + image + '">' + id + ". " + PokemonClone[list[x]] + '<\/li>')
+
+				log("end");
+            }
+            
+			$("#pokemonList").html(buffer)
+			$("#pokemonList").listview("refresh");
+
+
+    }
+    
+    
+    function gen()
+    {
+	    
+	    	$( "#genPopup" ).popup( "close");
+	      //If there's not enough pokemon left in the list.
+            if (PokemonClone.length<6)
+            {
+                alert("Not enough Pokemon.");
+                //$("#pokemonList").html("");
+                return
+            }
+			
+            //Removes the previous picks.
+            //$("#pokemonList").html("");
+            list=new Array();
+            names=new Array();
+            for (i=0; i<6; i++)
+            {
+                random=Math.floor((Math.random()*PokemonClone.length));
+                while (list.indexOf(random)!=-1)
+                {
+                    random=Math.floor(((Math.random()*PokemonClone.length)+1));
+                }
+                log("Adding " + random + " to list.");
+                list.push(random);
+                names.push(PokemonClone[random])
+            }
+            list.sort(function(a,b){return a-b});
+            log("Final list is " + list);
+            log("Entering list loop");
+
+            if (Player==1)
+            {
+                $("#pokemonList").html("");
+            }
+
+            buffer="<li data-role='list-divider'>Player " + Player + " <\/li> "
+            if (Player==1)
+            {
+                Player=2;
+            }
+            else if (Player==2)
+            {
+                Player=1;
+            }
+
+            for (x in list)
+            {
+            	//list[x]
+                //log("Number: " + x);
+                //log("This ID:" + ID)
+                Name=PokemonClone[list[x]];
+                ID=parseInt(PokemonInfo[Name].id, 10);
+                log(ID + " " + Name);
+                //Name=PokemonClone[list[x]]
+                //console.log(ID);
+                
+                
+               // log("This Pokemon: " + Name)
+                
+                
+				
+                //console.log("ID: " + id)
+                image=pad(ID,3) + ".png";
+                if (PokemonInfo[PokemonClone[list[x]]].Type.length>1)
+                {
+                	
+                	color1=PokemonInfo[PokemonClone[list[x]] ].Type[0].toLowerCase();
+                	color2=PokemonInfo[PokemonClone[list[x]] ].Type[1].toLowerCase();
+                    type="<span class='type " + color1 + "'>" + PokemonInfo[PokemonClone[list[x]] ].Type[0] + "<\/span> <span class='type " + color2 + "'>" + PokemonInfo[PokemonClone[list[x]]].Type[1] + "<\/span>"
+                }
+                else
+                {
+					color1=PokemonInfo[PokemonClone[list[x]] ].Type[0].toLowerCase();
+                    type='<span class="type ' + color1 + '">' + PokemonInfo[PokemonClone[list[x]]].Type[0] + '<\/span>';
+                }
+                
+				buffer=buffer + '<li data-id="' + ID + '"><img src="images/' + image + '">' + ID + ". " + Name + ' <span class="ui-li-count">' + type + '<\/span><\/li>'
+                //$("#pokemonList").append('<li><img src="images/' + image + '">' + id + ". " + PokemonClone[list[x]] + '<\/li>')
+
+            }
+            for (x in list)
+            {
+                log("Removing " + names[x] + " from PokemonClone Array.");
+                PokemonClone.splice(PokemonClone.indexOf(names[x]),1);
+
+            }
+
+            $("#pokemonList").prepend(buffer)
+            $("#counterButton").text(PokemonClone.length)
+            $("#pokemonList").listview("refresh");
+        
+	    
+	    
+    }
+
+
+function cleanArray(actual){
+  var newArray = new Array();
+  for(var i = 0; i<actual.length; i++){
+      if (actual[i]){
+        newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
+
+function PokemonByID(id)
+{
+    	   for (x in PokemonInfo)
+           {
+           		
+	       		if (id==parseInt(PokemonInfo[x].id, 10))
+	       		{
+		       		return x;
+	       		}
+	       		
+           }
+           return 0;
+
+}
+
+});
+    </script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="popup" id="cloudPopup" class="cloudPopup">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<div id="cloudbuttons">
+			 	<a id="sendButton" data-role="button">Send</a>
+                <a id="receiveButton" data-role="button">Receive</a>
+			</div>
+            <div id="cloudcontent">
+
+            </div>
+        </div>
+
+
+
+    <div data-role="popup" id="genPopup" class="cloudPopup">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				Are you sure?
+			<a id="okButton" data-role="button">Ok</a>
+
+		
+     </div>
+
+        <div data-role="popup" id="typePopup">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+
+            <ul data-role="listview">
+                <li data-role="list-divider" id="typeHeader"></li>
+
+                <li>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" id="strongList">
+                            <b>Strong</b>
+
+                            <p id="strong"></p>
+                        </div>
+
+                        <div class="ui-block-b" style="padding-left: 10px;" id="weakList">
+                            <b>Weak</b>
+
+                            <p id="weak"></p>
+                        </div>
+                    </div><!-- /grid-a -->
+                </li>
+
+                <li id="noList">
+                    <b>No Effect Against</b>
+
+                    <p id="no"></p>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="header" data-tap-toggle="false" data-position="fixed" style="background-color:#95091B; text-shadow:none; color:white;">
+            <a href="#" id="cloudButton" data-icon="cloud" data-iconpos="notext" data-theme="b"></a>
+
+            <h1>Pokemon Picker</h1>
+            <a href="#" id="counterButton" data-icon="refresh" data-theme="b">150</a>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <ul id="pokemonList" data-role="listview" data-count-theme="b"></ul><br>
+            <br>
+        </div><!-- /content -->
+
+        <div style="position:fixed; bottom:0px; background-color: #333; width:100%;">
+            <a data-role="button" id="genButton" data-mini="true" href="#">Generate</a>
+        </div><!-- /header -->
+    </div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.pr.ojectblue.pokemonpicker"
+	version 	= "0.1">
+
+	<name>Pokemon Picker</name>
+
+	<description>
+		Yup
+	</description>
+
+	<author href="http://heyimjason.com"
+		email="octalmage@gmail.com">
+		Jason Stallings
+	</author>
+
+<gap:platform name="ios" />
+
+
+	
+<!--<gap:plugin name="ChildBrowser" /> <!-- latest release -->
+	
+	
+
+
+
+
+<feature name="http://api.phonegap.com/1.0/network"/>
+<preference name="webviewbounce" value="false" />
+<preference name="stay-in-webview" value="true" />
+<preference name="prerendered-icon" value="true" />
+<preference name="orientation" value="portrait" />
+
+
+<gap:plugin name="com.phonegap.plugins.barcodescanner" />
+
+<preference name="phonegap-version" value="3.0.0" />
+	<!-- sample preference specification -->
+	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>
