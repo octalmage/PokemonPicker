@@ -22,6 +22,12 @@
 
     <style type="text/css">
     
+    
+    .ui-input-has-clear, .ui-input-search {
+
+margin-top: -10px !important;
+}
+    
     .bug
     {
 	    background-color: #9AAE00;
@@ -304,6 +310,177 @@
         'Dragon' : {'Dragon' : 2}
     }
 
+var Moves=
+{
+"Absorb" : {"Type" : "Grass","Category": "Special" ,"Power": "20","Accuracy": "100","Description":"User recovers half the HP inflicted on opponent."},
+"Acid" : {"Type" : "Poison","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"May lower opponent's Special Defense."},
+"Acid Armor" : {"Type" : "Poison","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Defense."},
+"Agility" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Speed."},
+"Amnesia" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Special Defense."},
+"Aurora Beam" : {"Type" : "Ice","Category": "Special" ,"Power": "65","Accuracy": "100","Description":"May lower opponent's Attack."},
+"Barrage" : {"Type" : "Normal","Category": "Physical" ,"Power": "15","Accuracy": "85","Description":"Hits 2-5 times in one turn."},
+"Barrier" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Defense."},
+"Bide" : {"Type" : "Normal","Category": "Physical" ,"Power": "-","Accuracy": "-","Description":"User takes damage for two turns then strikes back double."},
+"Bind" : {"Type" : "Normal","Category": "Physical" ,"Power": "15","Accuracy": "85","Description":"Traps opponent, damaging them for 4-5 turns."},
+"Bite" : {"Type" : "Dark","Category": "Physical" ,"Power": "60","Accuracy": "100","Description":"May cause flinching."},
+"Blizzard" : {"Type" : "Ice","Category": "Special" ,"Power": "110","Accuracy": "70","Description":"May freeze opponent."},
+"Body Slam" : {"Type" : "Normal","Category": "Physical" ,"Power": "85","Accuracy": "100","Description":"May paralyze opponent."},
+"Bone Club" : {"Type" : "Ground","Category": "Physical" ,"Power": "65","Accuracy": "85","Description":"May cause flinching."},
+"Bonemerang" : {"Type" : "Ground","Category": "Physical" ,"Power": "50","Accuracy": "90","Description":"Hits twice in one turn."},
+"Bubble" : {"Type" : "Water","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"May lower opponent's Speed."},
+"BubbleBeam" : {"Type" : "Water","Category": "Special" ,"Power": "65","Accuracy": "100","Description":"May lower opponent's Speed."},
+"Clamp" : {"Type" : "Water","Category": "Physical" ,"Power": "35","Accuracy": "85","Description":"Traps opponent, damaging them for 4-5 turns."},
+"Comet Punch" : {"Type" : "Normal","Category": "Physical" ,"Power": "18","Accuracy": "85","Description":"Hits 2-5 times in one turn."},
+"Confuse Ray" : {"Type" : "Ghost","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Confuses opponent."},
+"Confusion" : {"Type" : "Psychic","Category": "Special" ,"Power": "50","Accuracy": "100","Description":"May confuse opponent."},
+"Constrict" : {"Type" : "Normal","Category": "Physical" ,"Power": "10","Accuracy": "100","Description":"May lower opponent's Speed by one stage."},
+"Conversion" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Changes user's type to a type of one of its own moves."},
+"Counter" : {"Type" : "Fighting","Category": "Physical" ,"Power": "-","Accuracy": "100","Description":"When hit by a Physical Attack, user strikes back with 2x power."},
+"Crabhammer" : {"Type" : "Water","Category": "Physical" ,"Power": "100","Accuracy": "90","Description":"High critical hit ratio."},
+"Cut" : {"Type" : "Normal","Category": "Physical" ,"Power": "50","Accuracy": "95","Description":""},
+"Defense Curl" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Defense."},
+"Dig" : {"Type" : "Ground","Category": "Physical" ,"Power": "80","Accuracy": "100","Description":"Digs underground on first turn, attacks on second. Can also escape from caves."},
+"Disable" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Opponent can't use its last attack for a few turns."},
+"Dizzy Punch" : {"Type" : "Normal","Category": "Physical" ,"Power": "70","Accuracy": "100","Description":"May confuse opponent."},
+"Double Kick" : {"Type" : "Fighting","Category": "Physical" ,"Power": "30","Accuracy": "100","Description":"Hits twice in one turn."},
+"Double Team" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Evasiveness."},
+"Double-Edge" : {"Type" : "Normal","Category": "Physical" ,"Power": "120","Accuracy": "100","Description":"User receives recoil damage."},
+"DoubleSlap" : {"Type" : "Normal","Category": "Physical" ,"Power": "15","Accuracy": "85","Description":"Hits 2-5 times in one turn."},
+"Dragon Rage" : {"Type" : "Dragon","Category": "Special" ,"Power": "-","Accuracy": "100","Description":"Always inflicts 40 HP."},
+"Dream Eater" : {"Type" : "Psychic","Category": "Special" ,"Power": "100","Accuracy": "100","Description":"User recovers half the HP inflicted on a sleeping opponent."},
+"Drill Peck" : {"Type" : "Flying","Category": "Physical" ,"Power": "80","Accuracy": "100","Description":""},
+"Earthquake" : {"Type" : "Ground","Category": "Physical" ,"Power": "100","Accuracy": "100","Description":"Power is doubled if opponent is underground from using Dig."},
+"Egg Bomb" : {"Type" : "Normal","Category": "Physical" ,"Power": "100","Accuracy": "75","Description":""},
+"Ember" : {"Type" : "Fire","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"May burn opponent."},
+"Explosion" : {"Type" : "Normal","Category": "Physical" ,"Power": "250","Accuracy": "100","Description":"User faints."},
+"Fire Blast" : {"Type" : "Fire","Category": "Special" ,"Power": "110","Accuracy": "85","Description":"May burn opponent."},
+"Fire Punch" : {"Type" : "Fire","Category": "Physical" ,"Power": "75","Accuracy": "100","Description":"May burn opponent."},
+"Fire Spin" : {"Type" : "Fire","Category": "Special" ,"Power": "35","Accuracy": "85","Description":"Traps opponent, damaging them for 4-5 turns."},
+"Fissure" : {"Type" : "Ground","Category": "Physical" ,"Power": "-","Accuracy": "-","Description":"One-Hit-KO, if it hits."},
+"Flamethrower" : {"Type" : "Fire","Category": "Special" ,"Power": "90","Accuracy": "100","Description":"May burn opponent."},
+"Flash" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Accuracy."},
+"Fly" : {"Type" : "Flying","Category": "Physical" ,"Power": "90","Accuracy": "95","Description":"Flies up on first turn, attacks on second turn."},
+"Focus Energy" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Increases critical hit ratio."},
+"Fury Attack" : {"Type" : "Normal","Category": "Physical" ,"Power": "15","Accuracy": "85","Description":"Hits 2-5 times in one turn."},
+"Fury Swipes" : {"Type" : "Normal","Category": "Physical" ,"Power": "18","Accuracy": "80","Description":"Hits 2-5 times in one turn."},
+"Glare" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Paralyzes opponent."},
+"Growl" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Attack."},
+"Growth" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Attack and Special Attack."},
+"Guillotine" : {"Type" : "Normal","Category": "Physical" ,"Power": "-","Accuracy": "-","Description":"One-Hit-KO, if it hits."},
+"Gust" : {"Type" : "Flying","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"Hits Pokémon using Fly/Bounce with double power."},
+"Harden" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Defense."},
+"Haze" : {"Type" : "Ice","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Resets all stat changes."},
+"Headbutt" : {"Type" : "Normal","Category": "Physical" ,"Power": "70","Accuracy": "100","Description":"May cause flinching."},
+"Hi Jump Kick" : {"Type" : "Fighting","Category": "Physical" ,"Power": "130","Accuracy": "90","Description":"If it misses, the user loses half their HP."},
+"Horn Attack" : {"Type" : "Normal","Category": "Physical" ,"Power": "65","Accuracy": "100","Description":""},
+"Horn Drill" : {"Type" : "Normal","Category": "Physical" ,"Power": "-","Accuracy": "-","Description":"One-Hit-KO, if it hits."},
+"Hydro Pump" : {"Type" : "Water","Category": "Special" ,"Power": "110","Accuracy": "80","Description":""},
+"Hyper Beam" : {"Type" : "Normal","Category": "Special" ,"Power": "150","Accuracy": "90","Description":"User must recharge next turn."},
+"Hyper Fang" : {"Type" : "Normal","Category": "Physical" ,"Power": "80","Accuracy": "90","Description":"May cause flinching."},
+"Hypnosis" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "60","Description":"Puts opponent to sleep."},
+"Ice Beam" : {"Type" : "Ice","Category": "Special" ,"Power": "90","Accuracy": "100","Description":"May freeze opponent."},
+"Ice Punch" : {"Type" : "Ice","Category": "Physical" ,"Power": "75","Accuracy": "100","Description":"May freeze opponent."},
+"Jump Kick" : {"Type" : "Fighting","Category": "Physical" ,"Power": "100","Accuracy": "95","Description":"If it misses, the user loses half their HP."},
+"Karate Chop" : {"Type" : "Fighting","Category": "Physical" ,"Power": "50","Accuracy": "100","Description":"High critical hit ratio."},
+"Kinesis" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "80","Description":"Lowers opponent's Accuracy."},
+"Leech Life" : {"Type" : "Bug","Category": "Physical" ,"Power": "20","Accuracy": "100","Description":"User recovers half the HP inflicted on opponent."},
+"Leech Seed" : {"Type" : "Grass","Category": "Status" ,"Power": "-","Accuracy": "90","Description":"User steals HP from opponent each turn."},
+"Leer" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Defense."},
+"Lick" : {"Type" : "Ghost","Category": "Physical" ,"Power": "30","Accuracy": "100","Description":"May paralyze opponent."},
+"Light Screen" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Halves damage from Special attacks for 5 turns."},
+"Lovely Kiss" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "75","Description":"Puts opponent to sleep."},
+"Low Kick" : {"Type" : "Fighting","Category": "Physical" ,"Power": "-","Accuracy": "100","Description":"The heavier the opponent, the stronger the attack."},
+"Meditate" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Attack."},
+"Mega Drain" : {"Type" : "Grass","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"User recovers half the HP inflicted on opponent."},
+"Mega Kick" : {"Type" : "Normal","Category": "Physical" ,"Power": "120","Accuracy": "75","Description":""},
+"Mega Punch" : {"Type" : "Normal","Category": "Physical" ,"Power": "80","Accuracy": "85","Description":""},
+"Metronome" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User performs any move in the game at random."},
+"Mimic" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Copies the opponent's last move."},
+"Minimize" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Evasiveness."},
+"Mirror Move" : {"Type" : "Flying","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User performs the opponent's last move."},
+"Mist" : {"Type" : "Ice","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User's stats cannot be changed for a period of time."},
+"Night Shade" : {"Type" : "Ghost","Category": "Special" ,"Power": "-","Accuracy": "100","Description":"Inflicts damage equal to user's level."},
+"Pay Day" : {"Type" : "Normal","Category": "Physical" ,"Power": "40","Accuracy": "100","Description":"A small amount of money is gained after the battle resolves."},
+"Peck" : {"Type" : "Flying","Category": "Physical" ,"Power": "35","Accuracy": "100","Description":""},
+"Petal Dance" : {"Type" : "Grass","Category": "Special" ,"Power": "120","Accuracy": "100","Description":"User attacks for 2-3 turns but then becomes confused."},
+"Pin Missile" : {"Type" : "Bug","Category": "Physical" ,"Power": "25","Accuracy": "85","Description":"Hits 2-5 times in one turn."},
+"Poison Gas" : {"Type" : "Poison","Category": "Status" ,"Power": "-","Accuracy": "90","Description":"Poisons opponent."},
+"Poison Sting" : {"Type" : "Poison","Category": "Physical" ,"Power": "15","Accuracy": "100","Description":"May poison the opponent."},
+"PoisonPowder" : {"Type" : "Poison","Category": "Status" ,"Power": "-","Accuracy": "75","Description":"Poisons opponent."},
+"Pound" : {"Type" : "Normal","Category": "Physical" ,"Power": "40","Accuracy": "100","Description":""},
+"Psybeam" : {"Type" : "Psychic","Category": "Special" ,"Power": "65","Accuracy": "100","Description":"May confuse opponent."},
+"Psychic" : {"Type" : "Psychic","Category": "Special" ,"Power": "90","Accuracy": "100","Description":"May lower opponent's Special Defense."},
+"Psywave" : {"Type" : "Psychic","Category": "Special" ,"Power": "-","Accuracy": "80","Description":"Inflicts damage 50-150% of user's level."},
+"Quick Attack" : {"Type" : "Normal","Category": "Physical" ,"Power": "40","Accuracy": "100","Description":"User attacks first."},
+"Rage" : {"Type" : "Normal","Category": "Physical" ,"Power": "20","Accuracy": "100","Description":"Raises user's Attack when hit."},
+"Razor Leaf" : {"Type" : "Grass","Category": "Physical" ,"Power": "55","Accuracy": "95","Description":"High critical hit ratio."},
+"Razor Wind" : {"Type" : "Normal","Category": "Special" ,"Power": "80","Accuracy": "100","Description":"Charges on first turn, attacks on second. High critical hit ratio."},
+"Recover" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User recovers 50% of its max HP."},
+"Reflect" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Halves damage from Physical attacks for 5 turns."},
+"Rest" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User sleeps for 2 turns, but user is fully healed."},
+"Roar" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"In battles, the opponent switches. In the wild, the Pokémon runs."},
+"Rock Slide" : {"Type" : "Rock","Category": "Physical" ,"Power": "75","Accuracy": "90","Description":"May cause flinching."},
+"Rock Throw" : {"Type" : "Rock","Category": "Physical" ,"Power": "50","Accuracy": "90","Description":""},
+"Rolling Kick" : {"Type" : "Fighting","Category": "Physical" ,"Power": "60","Accuracy": "85","Description":"May cause flinching."},
+"Sand-Attack" : {"Type" : "Ground","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Accuracy."},
+"Scratch" : {"Type" : "Normal","Category": "Physical" ,"Power": "40","Accuracy": "100","Description":""},
+"Screech" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "85","Description":"Sharply lowers opponent's Defense."},
+"Seismic Toss" : {"Type" : "Fighting","Category": "Physical" ,"Power": "-","Accuracy": "100","Description":"Inflicts damage equal to user's level."},
+"Selfdestruct" : {"Type" : "Normal","Category": "Physical" ,"Power": "200","Accuracy": "100","Description":"User faints."},
+"Sharpen" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Attack."},
+"Sing" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "55","Description":"Puts opponent to sleep."},
+"Skull Bash" : {"Type" : "Normal","Category": "Physical" ,"Power": "130","Accuracy": "100","Description":"Raises Defense on first turn, attacks on second."},
+"Sky Attack" : {"Type" : "Flying","Category": "Physical" ,"Power": "140","Accuracy": "90","Description":"Charges on first turn, attacks on second. May cause flinching."},
+"Slam" : {"Type" : "Normal","Category": "Physical" ,"Power": "80","Accuracy": "75","Description":""},
+"Slash" : {"Type" : "Normal","Category": "Physical" ,"Power": "70","Accuracy": "100","Description":"High critical hit ratio."},
+"Sleep Powder" : {"Type" : "Grass","Category": "Status" ,"Power": "-","Accuracy": "75","Description":"Puts opponent to sleep."},
+"Sludge" : {"Type" : "Poison","Category": "Special" ,"Power": "65","Accuracy": "100","Description":"May poison opponent."},
+"Smog" : {"Type" : "Poison","Category": "Special" ,"Power": "30","Accuracy": "70","Description":"May poison opponent."},
+"SmokeScreen" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Accuracy."},
+"Softboiled" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User recovers 50% of its max HP."},
+"SolarBeam" : {"Type" : "Grass","Category": "Special" ,"Power": "120","Accuracy": "100","Description":"Charges on first turn, attacks on second."},
+"SonicBoom" : {"Type" : "Normal","Category": "Special" ,"Power": "-","Accuracy": "90","Description":"Always inflicts 20 HP."},
+"Spike Cannon" : {"Type" : "Normal","Category": "Physical" ,"Power": "20","Accuracy": "100","Description":"Hits 2-5 times in one turn."},
+"Splash" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Doesn't do ANYTHING."},
+"Spore" : {"Type" : "Grass","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Puts opponent to sleep."},
+"Stomp" : {"Type" : "Normal","Category": "Physical" ,"Power": "65","Accuracy": "100","Description":"May cause flinching."},
+"Strength" : {"Type" : "Normal","Category": "Physical" ,"Power": "80","Accuracy": "100","Description":""},
+"String Shot" : {"Type" : "Bug","Category": "Status" ,"Power": "-","Accuracy": "95","Description":"Lowers opponent's Speed."},
+"Struggle" : {"Type" : "Normal","Category": "Physical" ,"Power": "50","Accuracy": "100","Description":"Only usable when all PP are gone. Hurts the user."},
+"Stun Spore" : {"Type" : "Grass","Category": "Status" ,"Power": "-","Accuracy": "75","Description":"Paralyzes opponent."},
+"Submission" : {"Type" : "Fighting","Category": "Physical" ,"Power": "80","Accuracy": "80","Description":"User receives recoil damage."},
+"Substitute" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Uses HP to creates a decoy that takes hits."},
+"Super Fang" : {"Type" : "Normal","Category": "Physical" ,"Power": "-","Accuracy": "90","Description":"Always takes off half of the opponent's HP."},
+"Supersonic" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "55","Description":"Confuses opponent."},
+"Surf" : {"Type" : "Water","Category": "Special" ,"Power": "90","Accuracy": "100","Description":"Hits all adjacent Pokémon."},
+"Swift" : {"Type" : "Normal","Category": "Special" ,"Power": "60","Accuracy": "∞","Description":"Ignores Accuracy and Evasiveness."},
+"Swords Dance" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Sharply raises user's Attack."},
+"Tackle" : {"Type" : "Normal","Category": "Physical" ,"Power": "50","Accuracy": "100","Description":""},
+"Tail Whip" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Lowers opponent's Defense."},
+"Take Down" : {"Type" : "Normal","Category": "Physical" ,"Power": "90","Accuracy": "85","Description":"User receives recoil damage."},
+"Teleport" : {"Type" : "Psychic","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Allows user to switch out. In the wild, the battle ends."},
+"Thrash" : {"Type" : "Normal","Category": "Physical" ,"Power": "120","Accuracy": "100","Description":"User attacks for 2-3 turns but then becomes confused."},
+"Thunder" : {"Type" : "Electric","Category": "Special" ,"Power": "110","Accuracy": "70","Description":"May paralyze opponent."},
+"Thunder Wave" : {"Type" : "Electric","Category": "Status" ,"Power": "-","Accuracy": "100","Description":"Paralyzes opponent."},
+"ThunderPunch" : {"Type" : "Electric","Category": "Physical" ,"Power": "75","Accuracy": "100","Description":"May paralyze opponent."},
+"ThunderShock" : {"Type" : "Electric","Category": "Special" ,"Power": "40","Accuracy": "100","Description":"May paralyze opponent."},
+"Thunderbolt" : {"Type" : "Electric","Category": "Special" ,"Power": "90","Accuracy": "100","Description":"May paralyze opponent."},
+"Toxic" : {"Type" : "Poison","Category": "Status" ,"Power": "-","Accuracy": "90","Description":"Badly poisons opponent."},
+"Transform" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"User takes on the form and attacks of the opponent."},
+"Tri Attack" : {"Type" : "Normal","Category": "Special" ,"Power": "80","Accuracy": "100","Description":"May paralyze, burn or freeze opponent."},
+"Twineedle" : {"Type" : "Bug","Category": "Physical" ,"Power": "25","Accuracy": "100","Description":"Hits twice in one turn. May poison opponent."},
+"ViceGrip" : {"Type" : "Normal","Category": "Physical" ,"Power": "55","Accuracy": "100","Description":""},
+"Vine Whip" : {"Type" : "Grass","Category": "Physical" ,"Power": "45","Accuracy": "100","Description":""},
+"Water Gun" : {"Type" : "Water","Category": "Special" ,"Power": "40","Accuracy": "100","Description":""},
+"Waterfall" : {"Type" : "Water","Category": "Physical" ,"Power": "80","Accuracy": "100","Description":"May cause flinching."},
+"Whirlwind" : {"Type" : "Normal","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"In battles, the opponent switches. In the wild, the Pokémon runs."},
+"Wing Attack" : {"Type" : "Flying","Category": "Physical" ,"Power": "60","Accuracy": "100","Description":""},
+"Withdraw" : {"Type" : "Water","Category": "Status" ,"Power": "-","Accuracy": "-","Description":"Raises user's Defense."},
+"Wrap" : {"Type" : "Normal","Category": "Physical" ,"Power": "15","Accuracy": "90","Description":"Traps opponent, damaging them for 4-5 turns."},
+}
+
+
+
 
     debug=true;
     PokemonClone=Pokemon.slice(0);
@@ -313,8 +490,40 @@
 			
 
 
-
-
+		$("#resetButton").on("tap", function()
+		{
+			 $( "#resetPopup" ).popup( "close");
+		    PokemonClone=Pokemon.slice(0);
+            $("#counterButton").text(PokemonClone.length)
+            $("#pokemonList").html("");	
+			
+		});
+		
+		$("#movesButton").on("tap", function()
+		{
+			$("#menu").panel("close");
+			$("#pokemon").hide();
+			$("#moves").show();
+			$("#counterButton").hide();
+			$("#gen").hide();
+			
+		});	
+		
+		$("#pokemonButton").on("tap", function()
+		{
+			$("#menu").panel("close");
+			$("#pokemon").show();
+			$("#moves").hide();
+			$("#counterButton").show();
+			$("#gen").show();
+			
+		});		
+		
+		$("#counterButton").on("tap", function()
+        {               
+        
+            $( "#resetPopup" ).popup( "open");
+        })
 
 
         var images = new Array()
@@ -452,18 +661,16 @@ $( "#cloudPopup" ).popup( "close");
         });
 
 
-        $("#counterButton").on("touchstart", function()
-        {
-            PokemonClone=Pokemon.slice(0);
-            $("#counterButton").text(PokemonClone.length)
-            $("#pokemonList").html("");
-        })
+   
         $("#genButton").on("tap", function()
         {
         	$( "#genPopup" ).popup( "open");
     
           
 		})
+		
+		
+
 
     function log(message)
     {
@@ -672,24 +879,45 @@ function PokemonByID(id)
 </head>
 
 <body>
-    <div data-role="page">
+    <div data-role="page" >
         <div data-role="popup" id="cloudPopup" class="cloudPopup">
             <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 			<div id="cloudbuttons">
-			 	<a id="sendButton" data-role="button">Send</a>
-                <a id="receiveButton" data-role="button">Receive</a>
+			 	<!--<a id="sendButton" data-role="button">Send</a>
+                <a id="receiveButton" data-role="button">Receive</a>-->
 			</div>
             <div id="cloudcontent">
 
             </div>
         </div>
+        
+        
+        
+        
+        
+        <div data-role="panel" id="menu">
+			<ul data-role="listview">
+			 <li><a id="pokemonButton" href="#">Pokemon</a></li>
+			 <li><a id="movesButton" href="#">Moves</a></li>
+			 <li><a id="sendButton" href="#">Send</a></li>
+			 <li><a id="receiveButton" href="#">Receive</a></li>
+			</ul>
+		</div>
 
 
 
-    <div data-role="popup" id="genPopup" class="cloudPopup">
+    <div data-role="popup" id="genPopup" class="genPopup">
             <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				Are you sure?
 			<a id="okButton" data-role="button">Ok</a>
+
+		
+     </div>
+     
+     <div data-role="popup" id="resetPopup" class="resetPopup">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				Are you sure?
+			<a id="resetButton" data-role="button">Ok</a>
 
 		
      </div>
@@ -725,20 +953,55 @@ function PokemonByID(id)
         </div>
 
         <div data-role="header" data-tap-toggle="false" data-position="fixed" style="background-color:#95091B; text-shadow:none; color:white;">
-            <a href="#" id="cloudButton" data-icon="cloud" data-iconpos="notext" data-theme="b"></a>
+            <a href="#menu" id="" data-icon="bars" data-iconpos="notext" data-theme="b"></a>
 
             <h1>Pokemon Picker</h1>
             <a href="#" id="counterButton" data-icon="refresh" data-theme="b">150</a>
         </div><!-- /header -->
-
+		
         <div data-role="content">
+        
+			<div id="pokemon">
             <ul id="pokemonList" data-role="listview" data-count-theme="b"></ul><br>
             <br>
+            </div><!-- end pokemon-->
+            
+               <div id="moves" style="display:none;">
+               		<ul data-role="listview" data-filter="true">
+               		
+               		   <script type="text/javascript">
+               		   list=""
+               		   for (x in Moves)
+               		   {
+	               		   color1=Moves[x].Type.toLowerCase();
+	               		   list+="<li><h1>" + x + "</h1><p>" + Moves[x].Description + "</p><span class='ui-li-count'><span style='color:white;' class='type " + color1 + "'>" + Moves[x].Type + "<\/span> </span></li>"
+	               		   
+	               		   
+	               		   
+               		   }
+               		   document.write(list);
+               		   </script>
+               		
+               		</ul>
+        
+        
+			   </div><!-- end moves-->
+            
         </div><!-- /content -->
 
-        <div style="position:fixed; bottom:0px; background-color: #333; width:100%;">
+        <div id="gen" style="z-index:5555;position:fixed; bottom:0px; background-color: #333; width:100%;">
             <a data-role="button" id="genButton" data-mini="true" href="#">Generate</a>
-        </div><!-- /header -->
+        </div>
+        
+        
+        
+     
+        
+        
     </div><!-- /page -->
+    
+    
+    
+    
 </body>
 </html>
