@@ -754,6 +754,10 @@ $( "#cloudPopup" ).popup( "close");
     function gen()
     {
 	    
+            if ($("#initialcontent"))
+            {
+                $("#initialcontent").remove();
+            }
 	    	$( "#genPopup" ).popup( "close");
 	      //If there's not enough pokemon left in the list.
             if (PokemonClone.length<6)
@@ -953,12 +957,19 @@ function PokemonByID(id)
             <a href="#menu" id="" data-icon="bars" data-iconpos="notext" data-theme="b"></a>
 
             <h1>Pokemon Picker</h1>
+
             <a href="#" id="counterButton" data-icon="refresh" data-theme="b">150</a>
         </div><!-- /header -->
 		
         <div data-role="content">
         
 			<div id="pokemon">
+            <span id="initialcontent">
+                Press the generate button below to get started. <br>
+                Contribute features or ideas on <a href="https://github.com/octalmage/PokemonPicker">GitHub</a>!<br>
+                <iframe src="http://ghbtns.com/github-btn.html?user=octalmage&repo=pokemonpicker&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </span>
             <ul id="pokemonList" data-role="listview" data-count-theme="b"></ul><br>
             <br>
             </div><!-- end pokemon-->
@@ -996,9 +1007,5 @@ function PokemonByID(id)
         
         
     </div><!-- /page -->
-    
-    
-    
-    
 </body>
 </html>
